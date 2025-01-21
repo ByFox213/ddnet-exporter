@@ -14,15 +14,17 @@ config: Config = get_config(Config)
 logging.basicConfig(format='%(asctime)s:%(levelname)s:%(name)s: %(message)s', level=getattr(logging, config.log_level.upper()))
 _log = logging.getLogger(__name__)
 
-count_request = Counter('count_request', 'request count')
-request_latency_seconds = Histogram('request_latency_seconds', 'histogram')
+registry = CollectorRegistry()
+
+count_request = Counter('count_request', 'request count', registry=registry)
+request_latency_seconds = Histogram('request_latency_seconds', 'histogram', registry=registry)
 
 labels = ["address", "gametype", "map", "name", "hasPassword"]
-server_online = Gauge('server_online', 'ddnet server online', labels)
-server_online_max = Gauge('server_online_max', 'ddnet server online max', labels)
+server_online = Gauge('server_online', 'ddnet server online', labels, registry=registry)
+server_online_max = Gauge('server_online_max', 'ddnet server online max', labels, registry=registry)
 
-server_online_per_ip = Gauge('server_online_per_ip', 'ddnet server online per ip', ["address"])
-server_online_per_ip_max = Gauge('server_online_per_ip_max', 'ddnet server online per ip max', ["address"])
+server_online_per_ip = Gauge('server_online_per_ip', 'ddnet server online per ip', ["address"], registry=registry)
+server_online_per_ip_max = Gauge('server_online_per_ip_max', 'ddnet server online per ip max', ["address"], registry=registry)
 
 @request_latency_seconds.time()
 async def status_request(_status: Status, addresses: list) -> Optional[Generator[ServerTw, Any, None]]:
@@ -41,9 +43,6 @@ async def status_request(_status: Status, addresses: list) -> Optional[Generator
 
 
 async def main():
-    loop = asyncio.get_running_loop()
-    registry = CollectorRegistry()
-
     addresses = [
         (ip_port[0], int(ip_port[1]) if len(ip_port) > 1 else None)
         for ip_port in (
@@ -54,7 +53,7 @@ async def main():
     if config.gateway_address is not None:
         _log.info('| Push gateway client scheduled')
     else:
-        start_http_server(config.port)
+        start_http_server(config.port, registry=registry)
         _log.info("| Starting http server")
 
     _log.info("| Starting")
