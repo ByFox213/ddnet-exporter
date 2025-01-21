@@ -56,10 +56,10 @@ async def main():
 
     if config.gateway_address is not None:
         push_client = PushGatewayClient(config.gateway_address, 'server_parser_ddnet')
-        push_client.schedule_push(10, loop)
+        push_client.schedule_push(config.push_gateway_schedule_timer, loop)
         _log.info('| Push gateway client scheduled')
     else:
-        start_http_server(8000)
+        start_http_server(config.port)
         _log.info("| Starting http server")
 
     _log.info("| Starting")
