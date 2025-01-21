@@ -3,10 +3,7 @@ import logging
 from typing import Optional, Any, Generator
 
 from ddapi import Status, ServerTw
-from prometheus_client import REGISTRY, Counter, Histogram, start_http_server, Gauge
-
-from prometheus_client_utils.collectors import AsyncioCollector
-from prometheus_client_utils.push_clients import PushGatewayClient
+from prometheus_client import REGISTRY, Counter, Histogram, start_http_server, Gauge, push_to_gateway, CollectorRegistry
 
 from modals import Config
 from util import get_config
@@ -45,7 +42,7 @@ async def status_request(_status: Status, addresses: list) -> Optional[Generator
 
 async def main():
     loop = asyncio.get_running_loop()
-    REGISTRY.register(AsyncioCollector(loop))
+    registry = CollectorRegistry()
 
     addresses = [
         (ip_port[0], int(ip_port[1]) if len(ip_port) > 1 else None)
@@ -55,8 +52,6 @@ async def main():
     ]
 
     if config.gateway_address is not None:
-        push_client = PushGatewayClient(config.gateway_address, 'server_parser_ddnet')
-        push_client.schedule_push(config.push_gateway_schedule_timer, loop)
         _log.info('| Push gateway client scheduled')
     else:
         start_http_server(config.port)
@@ -90,7 +85,9 @@ async def main():
             server_online.labels(**args).set(server.numClients)
             server_online_max.labels(**args).set(server.maxClients)
 
-        await asyncio.sleep(10)
+        if config.gateway_address is not None:
+            push_to_gateway(config.gateway_address, job='ddnet-exporter', registry=registry)
+        await asyncio.sleep(config.sleep)
 
 if __name__ == '__main__':
     try:
