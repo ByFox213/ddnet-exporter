@@ -3,7 +3,7 @@ import logging
 from typing import Optional, Any, Generator
 
 from ddapi import Status, ServerTw
-from prometheus_client import REGISTRY, Counter, Histogram, start_http_server, Gauge, push_to_gateway, CollectorRegistry
+from prometheus_client import Counter, Histogram, start_http_server, Gauge, pushadd_to_gateway, CollectorRegistry
 
 from modals import Config
 from util import get_config
@@ -85,7 +85,7 @@ async def main():
             server_online_max.labels(**args).set(server.maxClients)
 
         if config.gateway_address is not None:
-            push_to_gateway(config.gateway_address, job='ddnet-exporter', registry=registry)
+            pushadd_to_gateway(config.gateway_address, job='ddnet-exporter', registry=registry)
         await asyncio.sleep(config.sleep)
 
 if __name__ == '__main__':
