@@ -1,7 +1,7 @@
 import asyncio
 import logging
 
-from ddapi import DDnetApi, Server
+from ddapi import DDnetApi
 from prometheus_client import start_http_server, Gauge, pushadd_to_gateway
 
 from modals import Config
@@ -28,19 +28,16 @@ server_online_per_ip = Gauge(
 
 
 
-async def update_metrics(server: Server, addr: tuple[str, str]) -> None:
-    args = {
-        "address": f"{addr[0]}:{addr[1]}",
-        "map": server.info.map.name,
-        "hasPassword": str(server.info.passworded).lower(),
-        "gametype": server.info.game_type,
-        "name": server.info.name,
-        "max_clients": server.info.max_clients
-    }
-    online = len(server.info.clients)
+async def update_metrics(servers: list[dict]) -> None:
+    server_online_per_ip.clear()
+    server_online.clear()
 
-    server_online_per_ip.labels(addr[0]).inc(online)
-    server_online.labels(**args).set(online)
+    for args in servers:
+        addr = args.pop("ip")
+        online = args.pop("online")
+
+        server_online_per_ip.labels(addr).inc(online)
+        server_online.labels(**args).set(online)
 
 
 async def main():
@@ -62,15 +59,27 @@ async def main():
         _log.info("| Starting http server")
 
     while True:
-        server_online_per_ip.clear()
-        server_online.clear()
+        servers = []
 
         async for addr, server in status_request(dd, addresses):
             if server is None:
                 await asyncio.sleep(config.sleep)
                 break
 
-            await update_metrics(server, addr)
+            args = {
+                "ip": addr[0],
+                "address": f"{addr[0]}:{addr[1]}",
+                "map": server.info.map.name,
+                "hasPassword": str(server.info.passworded).lower(),
+                "gametype": server.info.game_type,
+                "name": server.info.name,
+                "max_clients": server.info.max_clients,
+                "online": len(server.info.clients)
+            }
+
+            servers.append(args)
+
+        await update_metrics(servers)
 
         if config.gateway_address is not None:
             pushadd_to_gateway(config.gateway_address, job='ddnet-exporter', registry=REGISTRY)
