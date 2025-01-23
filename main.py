@@ -19,6 +19,8 @@ registry = CollectorRegistry()
 count_request = Counter('count_request', 'request count', registry=registry)
 request_latency_seconds = Histogram('request_latency_seconds', 'histogram', registry=registry)
 
+servers = []
+
 labels = ["address", "gametype", "map", "name", "hasPassword"]
 server_online = Gauge('server_online', 'ddnet server online', labels, registry=registry)
 server_online_max = Gauge('server_online_max', 'ddnet server online max', labels, registry=registry)
@@ -57,11 +59,13 @@ async def main():
         _log.info("| Starting http server")
 
     while True:
-        for server_ip in addresses:
-            ip = server_ip[0]
+        server_online_per_ip.clear()
+        server_online_per_ip_max.clear()
 
-            server_online_per_ip.labels(ip).set(0)
-            server_online_per_ip_max.labels(ip).set(0)
+        server_online.clear()
+        server_online_max.clear()
+
+        servers.clear()
 
         async for addr, server in status_request(dd, addresses):
             if server is None:
@@ -75,6 +79,8 @@ async def main():
                 "gametype": server.info.game_type,
                 "name": server.info.name
             }
+            servers.append(args)
+
             ip = server.addresses[0].replace("tw-0.6+udp://", "")
             online = len(server.info.clients)
 
