@@ -3,7 +3,7 @@ import logging
 from typing import Optional, AsyncGenerator
 
 from ddapi import DDnetApi, Server
-from prometheus_client import Counter, Histogram, start_http_server, Gauge, push_to_gateway, CollectorRegistry
+from prometheus_client import Counter, Histogram, start_http_server, Gauge, pushadd_to_gateway, CollectorRegistry
 
 from modals import Config
 from util import get_config
@@ -19,7 +19,7 @@ registry = CollectorRegistry()
 count_request = Counter('count_request', 'request count', registry=registry)
 request_latency_seconds = Histogram('request_latency_seconds', 'histogram', registry=registry)
 
-labels = ["address", "gametype"]
+labels = ["address", "gametype", "map", "name", "hasPassword"]
 server_online = Gauge('server_online', 'ddnet server online', labels, registry=registry)
 server_online_max = Gauge('server_online_max', 'ddnet server online max', labels, registry=registry)
 
@@ -70,7 +70,10 @@ async def main():
 
             args = {
                 "address": f"{addr[0]}:{addr[1]}",
-                "gametype": server.info.game_type
+                "map": server.info.map.name,
+                "hasPassword": str(server.info.passworded).lower(),
+                "gametype": server.info.game_type,
+                "name": server.info.name
             }
             ip = server.addresses[0].replace("tw-0.6+udp://", "")
             online = len(server.info.clients)
@@ -82,7 +85,7 @@ async def main():
             server_online_max.labels(**args).set(server.info.max_clients)
 
         if config.gateway_address is not None:
-            push_to_gateway(config.gateway_address, job='ddnet-exporter', registry=registry)
+            pushadd_to_gateway(config.gateway_address, job='ddnet-exporter', registry=registry)
         await asyncio.sleep(config.sleep)
 
 if __name__ == '__main__':
