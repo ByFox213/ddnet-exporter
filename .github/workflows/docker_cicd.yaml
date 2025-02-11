@@ -34,7 +34,7 @@ jobs:
       with:
         context: .
         push: true
-        tags: ${{ secrets.DOCKER_REGISTRY }}/tw/docker-exporter:${{ steps.version.outputs.builddate }}
+        tags: ${{ secrets.DOCKER_REGISTRY }}/tw/exporter/ddnet-exporter:${{ steps.version.outputs.builddate }}
         labels: ${{ steps.meta.outputs.labels }}
         
   # deploy:      
