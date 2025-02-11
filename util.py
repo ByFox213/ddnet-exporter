@@ -33,10 +33,10 @@ async def update_metrics(servers: list[dict]) -> None:
         server_online_per_ip.labels(addr).inc(online)
         server_online.labels(**args).set(online)
 
-def get_address(address: str) -> tuple | None:
+def get_address(address: str) -> tuple:
     ip = ipv4_regex.findall(address) or ipv6_regex.findall(address)
     if not ip:
-        return
+        return ()
     port = address.split(":")[-1]
     return ip[0], port
 
@@ -52,7 +52,7 @@ async def status_request(_dd: DDnetApi, addresses: list) -> AsyncGenerator[Serve
     for server in request.servers:
         for address in server.addresses:
             addr = get_address(address)
-            if addr is None:
+            if not addr:
                 continue
 
             if addresses is None:

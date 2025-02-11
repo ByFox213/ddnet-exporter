@@ -61,7 +61,7 @@ async def main():
         await update_metrics(servers)
 
         if config.gateway_address is not None:
-            _log.debug(f"push to {config.gateway_address} job=ddnet-exporter")
+            _log.debug("push to %s job=ddnet-exporter", config.gateway_address)
             pushadd_to_gateway(config.gateway_address, job='ddnet-exporter', registry=REGISTRY)
         _log.debug("sleep: %s", config.sleep)
         await asyncio.sleep(config.sleep)
