@@ -11,11 +11,15 @@ from util import get_config, status_request, update_metrics
 dd = DDnetApi()
 
 logging.basicConfig(format='%(asctime)s:%(levelname)s:%(name)s: %(message)s', level=logging.INFO)
-_log = logging.getLogger(__name__)
+_log = logging.getLogger("root")
 
 
 async def main():
     config: Config = get_config(Config)
+    _log.setLevel(getattr(logging, config.log_level.upper()))
+    _log.info("Starting DDnet exporter")
+    _log.info("log level: %s", config.log_level.upper())
+    _log.info("selected server: %s", config.address if config.address is not None else "all")
     if config is None:
         config: Config = Config()
 
@@ -27,10 +31,10 @@ async def main():
     ] if config.address is not None else None
 
     if config.gateway_address is not None:
-        _log.info('| Push gateway client scheduled')
+        _log.info('Push gateway client scheduled')
     else:
         start_http_server(config.port, registry=REGISTRY)
-        _log.info("| Starting http server")
+        _log.info("Starting http server")
 
     while True:
         servers = []
@@ -57,7 +61,9 @@ async def main():
         await update_metrics(servers)
 
         if config.gateway_address is not None:
+            _log.debug(f"push to {config.gateway_address} job=ddnet-exporter")
             pushadd_to_gateway(config.gateway_address, job='ddnet-exporter', registry=REGISTRY)
+        _log.debug("sleep: %s", config.sleep)
         await asyncio.sleep(config.sleep)
 
 if __name__ == '__main__':
