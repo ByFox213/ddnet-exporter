@@ -16,9 +16,8 @@ _log = logging.getLogger("root")
 
 async def main():
     config: Config = Config.yaml()
-    _log.setLevel(getattr(logging, config.log_level.upper()))
     _log.info("Starting DDnet exporter")
-    _log.info("log level: %s", config.log_level.upper())
+    _log.info("log level: %s", config.logging.level)
     _log.info("selected server: %s", config.address if config.address is not None else "all")
     if config is None:
         config: Config = Config()
