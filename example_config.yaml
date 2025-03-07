@@ -1,2 +1,4 @@
+# If it is necessary to take only from one ip, you can also specify ports
+# You can delete the address or the entire config file to collect data on all ip's
 address:
   - 45.141.57.22

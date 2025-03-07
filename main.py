@@ -6,16 +6,16 @@ from prometheus_client import start_http_server, pushadd_to_gateway
 
 from modals import Config
 from registry import REGISTRY
-from util import get_config, status_request, update_metrics
+from util import status_request, update_metrics
 
 dd = DDnetApi()
 
-logging.basicConfig(format='%(asctime)s:%(levelname)s:%(name)s: %(message)s', level=logging.INFO)
+logging.basicConfig(format='%(asctime)s:%(levelname)s:%(name)s: %(message)s')
 _log = logging.getLogger("root")
 
 
 async def main():
-    config: Config = get_config(Config)
+    config: Config = Config.yaml()
     _log.setLevel(getattr(logging, config.log_level.upper()))
     _log.info("Starting DDnet exporter")
     _log.info("log level: %s", config.log_level.upper())
@@ -23,15 +23,10 @@ async def main():
     if config is None:
         config: Config = Config()
 
-    addresses = [
-        (ip_port[0], int(ip_port[1]) if len(ip_port) > 1 else None)
-        for ip_port in (
-            ip.split(":") for ip in config.address
-        )
-    ] if config.address is not None else None
+    addresses: list[tuple[str, int | None]] = config.addresses() if config.address is not None else None
 
     if config.gateway_address is not None:
-        _log.info('Push gateway client scheduled')
+        _log.info('Selected gateway client')
     else:
         start_http_server(config.port, registry=REGISTRY)
         _log.info("Starting http server")
@@ -65,6 +60,7 @@ async def main():
             pushadd_to_gateway(config.gateway_address, job='ddnet-exporter', registry=REGISTRY)
         _log.debug("sleep: %s", config.sleep)
         await asyncio.sleep(config.sleep)
+
 
 if __name__ == '__main__':
     try:
