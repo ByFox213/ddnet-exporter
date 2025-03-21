@@ -34,19 +34,19 @@ async def main():
         servers = []
 
         async for addr, server in status_request(dd, addresses):
-            if server is None:
-                await asyncio.sleep(config.sleep)
-                break
+            if server is None or server.info is None:
+                continue
 
+            _map = server.info.map.name if server.info.map is not None else ""
             args = {
                 "ip": addr[0],
                 "address": f"{addr[0]}:{addr[1]}",
-                "map": server.info.map.name,
+                "map": _map,
                 "hasPassword": str(server.info.passworded).lower(),
-                "gametype": server.info.game_type,
-                "name": server.info.name,
-                "max_clients": server.info.max_clients,
-                "online": len(server.info.clients)
+                "gametype": server.info.game_type if server.info.game_type is not None else "",
+                "name": server.info.name if server.info.name is not None else "",
+                "max_clients": server.info.max_clients if server.info.max_clients is not None else -1,
+                "online": len(server.info.clients) if server.info.clients is not None else -1,
             }
 
             servers.append(args)
