@@ -35,7 +35,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: latest
+          tags: byfox/ddnet-exporter:latest
           labels: ${{ steps.meta.outputs.labels }}
 
       - name: Generate artifact attestation
