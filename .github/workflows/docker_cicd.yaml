@@ -2,11 +2,6 @@ name: Publish Docker image
 
 on:
   workflow_dispatch:
-    inputs:
-      tag:
-        description: 'Docker image tag (e.g., v1.0.0)'
-        required: true
-        default: 'latest'
 
 jobs:
   push_to_registry:
@@ -40,7 +35,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: latest
           labels: ${{ steps.meta.outputs.labels }}
 
       - name: Generate artifact attestation
