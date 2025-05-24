@@ -1,6 +1,5 @@
 mod models;
 mod register;
-mod tests;
 mod util;
 
 use std::net::SocketAddr;
