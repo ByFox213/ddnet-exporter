@@ -1,10 +1,11 @@
+mod models;
 mod register;
 mod tests;
 mod util;
-mod models;
 
 use std::net::SocketAddr;
 
+use crate::models::Config;
 use crate::util::ddnet;
 use hyper::Request;
 use hyper::Response;
@@ -16,7 +17,6 @@ use hyper_util::rt::TokioIo;
 use log::{error, info};
 use prometheus::{Encoder, TextEncoder};
 use tokio::net::TcpListener;
-use crate::models::Config;
 
 type BoxedErr = Box<dyn std::error::Error + Send + Sync + 'static>;
 

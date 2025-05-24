@@ -6,11 +6,11 @@ use serde::Deserialize;
 pub struct Config {
     #[serde(rename = "RUST_LOG")]
     pub logging: Option<String>,
-    
+
     #[serde(rename = "PORT")]
     #[serde(default = "default_port")]
     pub web_port: u16,
-    
+
     #[serde(rename = "DELAY")]
     #[serde(default = "default_delay")]
     pub delay: u64,
@@ -28,9 +28,8 @@ impl Config {
     pub fn from_env() -> Result<Self, envy::Error> {
         envy::from_env::<Self>()
     }
-    
+
     pub fn set_logging(&self) {
-        println!("{:?}", self);
         let mut builder = Builder::new();
         builder.filter_level(LevelFilter::Info);
         if self.logging.is_some() {

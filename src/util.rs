@@ -1,3 +1,4 @@
+use crate::models::Config;
 use crate::register::*;
 use ddapi_rs::api::DDApi;
 use ddapi_rs::api::ddnet::DDnetApi;
@@ -6,7 +7,6 @@ use log::{error, trace};
 use regex::Regex;
 use std::time::Duration;
 use tokio::time::sleep;
-use crate::models::Config;
 
 lazy_static! {
     static ref ADDRESS_REGEX: Regex = Regex::new(
@@ -60,7 +60,7 @@ pub async fn ddnet(config: Config) {
             let online = server.count_client() as f64;
             for address in server.addresses {
                 if let Some((ip, port_str)) = get_address(&address) {
-                    let address = format!("{}:{}", ip, port_str);
+                    let address = format!("{ip}:{port_str}");
                     let labels = &[
                         &address,
                         &server.info.gametype,
