@@ -1,16 +1,21 @@
-FROM rust:1.70-bookworm AS rust-build
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install pkg-config libssl-dev libssl3 ca-certificates -y && \
+    rm -rf /var/lib/apt/lists/* && \
+    cargo build --release
 
-WORKDIR /app
+COPY . .
 
-COPY src ./src
-RUN cargo build --release && \
-    strip target/release/ddnet-exporter
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install pkg-config libssl-dev libssl3 ca-certificates -y && \
+    rm -rf /var/lib/apt/lists/* && \
+    cargo build --release
 
-
-FROM alpine:latest
+FROM debian:bookworm-slim
 
 WORKDIR /tw
 
 COPY --from=rust-build /app_build/target/release/ddnet-exporter /tw/ddnet-exporter
 
-CMD ["/tw/ddnet-exporter"]
+ENTRYPOINT ["/tw/ddnet-exporter"]
