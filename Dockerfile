@@ -1,18 +1,20 @@
-RUN apt-get update && \
-    apt-get upgrade -y && \
-    apt-get install pkg-config libssl-dev libssl3 ca-certificates -y && \
-    rm -rf /var/lib/apt/lists/* && \
-    cargo build --release
+FROM rust:latest AS rust-build
+
+WORKDIR /app_build
 
 COPY . .
 
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install pkg-config libssl-dev libssl3 ca-certificates -y && \
+    apt-get install -y pkg-config libssl-dev libssl3 ca-certificates && \
     rm -rf /var/lib/apt/lists/* && \
     cargo build --release
 
 FROM debian:bookworm-slim
+
+RUN apt-get update && \
+    apt-get install -y libssl3 ca-certificates && \
+    rm -rf /var/lib/apt/lists/*
 
 WORKDIR /tw
 
