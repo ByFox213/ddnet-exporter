@@ -1,11 +1,11 @@
 use env_logger::Builder;
-use log::LevelFilter;
 use serde::Deserialize;
 
 #[derive(Debug, Deserialize)]
 pub struct Config {
     #[serde(rename = "RUST_LOG")]
-    pub logging: Option<String>,
+    #[serde(default = "default_logging")]
+    pub logging: String,
 
     #[serde(rename = "PORT")]
     #[serde(default = "default_port")]
@@ -14,6 +14,10 @@ pub struct Config {
     #[serde(rename = "DELAY")]
     #[serde(default = "default_delay")]
     pub delay: u64,
+}
+
+fn default_logging() -> String {
+    "INFO".to_string()
 }
 
 fn default_port() -> u16 {
@@ -31,10 +35,7 @@ impl Config {
 
     pub fn set_logging(&self) {
         let mut builder = Builder::new();
-        builder.filter_level(LevelFilter::Info);
-        if self.logging.is_some() {
-            builder.parse_filters(&self.logging.clone().unwrap());
-        }
+        builder.parse_filters(&self.logging);
         builder.init();
     }
 }
