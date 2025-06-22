@@ -21,6 +21,10 @@ WORKDIR /tw
 
 COPY --from=rust-build /app_build/target/release/ddnet-exporter /tw/ddnet-exporter
 
-ENV RUST_LOG=INFO
+ENV RUST_LOG=info
+EXPOSE 8080
+
+HEALTHCHECK --interval=30s --timeout=3s \
+    CMD curl -f http://localhost:8080 || exit 1
 
 ENTRYPOINT ["/tw/ddnet-exporter"]

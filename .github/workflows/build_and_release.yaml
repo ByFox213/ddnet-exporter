@@ -18,6 +18,8 @@ on:
           - patch
           - minor
           - major
+      publish:
+        type: boolean
       overwrite_tag:
         type: boolean
   workflow_call:
@@ -41,7 +43,7 @@ jobs:
       - name: Validate input
         id: regex-match
         run: |
-          text="${INPUT_VERSION}";
+          text="${inputs.version}";
           regex="^v([0-9]+)\.([0-9]+)\.([0-9]+)-?([[:alnum:]]*)\+?([0-9]*)$";
           # Perform the regex match
           if grep -qE "$regex" <<< "$text"; then
@@ -239,3 +241,9 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           ref: refs/tags/${{  needs.get-version.outputs.new_tag_version }}
           checksum: sha256
+
+  publish-crate:
+    needs: [create-tag]
+    if: ${{ inputs.publish }}
+    uses: ./.github/workflows/publish.yaml
+    secrets: inherit
