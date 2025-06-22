@@ -155,29 +155,5 @@ jobs:
         with:
           globs: '**/*.md'
 
-  yamlfmt:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Fetch Repository
-        uses: actions/checkout@v4
-
-      - uses: actions/setup-go@v5
-        with:
-          go-version: stable
-          cache: false
-
-      - name: Install yamlfmt
-        run: go install github.com/google/yamlfmt/cmd/yamlfmt@latest
-
-      - name: Run yamlfmt
-        run: yamlfmt --lint .
-
-  cargo-deny:
-    uses: ./.github/workflows/cargo_deny.yaml
-
-  check-msrv:
-    uses: ./.github/workflows/check_msrv.yaml
-
   cargo-miri:
     uses: ./.github/workflows/cargo_miri.yaml

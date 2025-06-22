@@ -23,7 +23,7 @@ jobs:
       secret_exists: ${{ steps.secret.outputs.token_exists }}
 
   publish-crate:
-    needs: [check-secret-existence]
+    needs: [ check-secret-existence ]
     if: ${{ needs.check-secret-existence.outputs.secret_exists == 'true' }}
     runs-on: ubuntu-latest
     steps:
