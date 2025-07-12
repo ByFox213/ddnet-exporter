@@ -168,7 +168,7 @@ repository = "https://github.com/tokio-rs/bytes"
 
 [[dependencies]]
 name = "cc"
-version = "1.2.28"
+version = "1.2.29"
 description = """
 A build-time dependency for Cargo build scripts to assist in invoking the native
 C compiler to compile native C code into a static archive to be linked into Rust
@@ -573,7 +573,7 @@ homepage = "https://hyper.rs"
 
 [[dependencies]]
 name = "hyper-util"
-version = "0.1.14"
+version = "0.1.15"
 description = "hyper utilities"
 license = "MIT"
 notices = ["Copyright (c) 2023-2025 Sean McArthur"]
@@ -1206,7 +1206,7 @@ repository = "https://github.com/bytecodealliance/rustix"
 
 [[dependencies]]
 name = "rustls"
-version = "0.23.28"
+version = "0.23.29"
 description = "Rustls is a modern TLS library written in Rust."
 license = "Apache-2.0 OR ISC OR MIT"
 notices = [
@@ -1228,7 +1228,7 @@ repository = "https://github.com/rustls/pki-types"
 
 [[dependencies]]
 name = "rustls-webpki"
-version = "0.103.3"
+version = "0.103.4"
 description = "Web PKI X.509 Certificate Verification."
 license = "ISC"
 notices = ["Copyright 2015 Brian Smith."]
