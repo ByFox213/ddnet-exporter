@@ -168,7 +168,7 @@ repository = "https://github.com/tokio-rs/bytes"
 
 [[dependencies]]
 name = "cc"
-version = "1.2.29"
+version = "1.2.30"
 description = """
 A build-time dependency for Cargo build scripts to assist in invoking the native
 C compiler to compile native C code into a static archive to be linked into Rust
@@ -1195,7 +1195,7 @@ repository = "https://github.com/rust-lang/rustc-demangle"
 
 [[dependencies]]
 name = "rustix"
-version = "1.0.7"
+version = "1.0.8"
 description = "Safe Rust bindings to POSIX/Unix/Linux/Winsock-like syscalls"
 license = "Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT"
 authors = [
@@ -1331,7 +1331,7 @@ homepage = "https://serde.rs"
 
 [[dependencies]]
 name = "serde_json"
-version = "1.0.140"
+version = "1.0.141"
 description = "A JSON serialization file format"
 license = "MIT OR Apache-2.0"
 authors = [
