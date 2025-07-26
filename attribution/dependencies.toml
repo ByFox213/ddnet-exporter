@@ -573,7 +573,7 @@ homepage = "https://hyper.rs"
 
 [[dependencies]]
 name = "hyper-util"
-version = "0.1.15"
+version = "0.1.16"
 description = "hyper utilities"
 license = "MIT"
 notices = ["Copyright (c) 2023-2025 Sean McArthur"]
@@ -702,7 +702,7 @@ repository = "https://github.com/indexmap-rs/indexmap"
 
 [[dependencies]]
 name = "io-uring"
-version = "0.7.8"
+version = "0.7.9"
 description = "The low-level `io_uring` userspace interface for Rust"
 license = "MIT OR Apache-2.0"
 notices = [
@@ -1121,7 +1121,7 @@ homepage = "https://github.com/r-efi/r-efi/wiki"
 
 [[dependencies]]
 name = "redox_syscall"
-version = "0.5.13"
+version = "0.5.15"
 description = "A Rust library to access raw Redox system calls"
 license = "MIT"
 notices = ["Copyright (c) 2017 Redox OS Developers"]
@@ -1401,6 +1401,21 @@ repository = "https://github.com/servo/rust-smallvec"
 [[dependencies]]
 name = "socket2"
 version = "0.5.10"
+description = """
+Utilities for handling networking sockets with a maximal amount of configuration
+possible intended.
+"""
+license = "MIT OR Apache-2.0"
+notices = ["Copyright (c) 2014 Alex Crichton"]
+authors = [
+  "Alex Crichton <alex@alexcrichton.com>",
+  "Thomas de Zeeuw <thomasdezeeuw@gmail.com>",
+]
+repository = "https://github.com/rust-lang/socket2"
+
+[[dependencies]]
+name = "socket2"
+version = "0.6.0"
 description = """
 Utilities for handling networking sockets with a maximal amount of configuration
 possible intended.
