@@ -201,10 +201,11 @@ checksum = "773648b94d0e5d620f64f280777445740e61fe701025087ec8b57f45c791888b"
 
 [[package]]
 name = "ddapi-rs"
-version = "0.4.2"
+version = "0.5.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "22115f0a3efeff989649a3d66fce21052544c129b0c592eb221a0f4f26dde3cf"
+checksum = "c68175bd571b105c1f1d47682e5700d2dc1a0916252443e59ce2ad549e8d149d"
 dependencies = [
+ "anyhow",
  "chrono",
  "reqwest",
  "serde",
