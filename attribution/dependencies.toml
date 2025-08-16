@@ -87,11 +87,19 @@ repository = "https://github.com/rust-cli/anstyle.git"
 
 [[dependencies]]
 name = "anyhow"
-version = "1.0.98"
+version = "1.0.99"
 description = "Flexible concrete Error type built on std::error::Error"
 license = "MIT OR Apache-2.0"
 authors = ["David Tolnay <dtolnay@gmail.com>"]
 repository = "https://github.com/dtolnay/anyhow"
+
+[[dependencies]]
+name = "async-lock"
+version = "3.4.1"
+description = "Async synchronization primitives"
+license = "Apache-2.0 OR MIT"
+authors = ["Stjepan Glavina <stjepang@gmail.com>"]
+repository = "https://github.com/smol-rs/async-lock"
 
 [[dependencies]]
 name = "atomic-waker"
@@ -212,6 +220,18 @@ notices = ["Copyright (c) Individual contributors"]
 repository = "https://github.com/rust-cli/anstyle.git"
 
 [[dependencies]]
+name = "concurrent-queue"
+version = "2.5.0"
+description = "Concurrent multi-producer multi-consumer queue"
+license = "Apache-2.0 OR MIT"
+authors = [
+  "Stjepan Glavina <stjepang@gmail.com>",
+  "Taiki Endo <te316e89@gmail.com>",
+  "John Nunley <dev@notgull.net>",
+]
+repository = "https://github.com/smol-rs/concurrent-queue"
+
+[[dependencies]]
 name = "core-foundation"
 version = "0.9.4"
 description = "Bindings to Core Foundation for macOS"
@@ -230,8 +250,40 @@ authors = ["The Servo Project Developers"]
 repository = "https://github.com/servo/core-foundation-rs"
 
 [[dependencies]]
+name = "crossbeam-channel"
+version = "0.5.15"
+description = "Multi-producer multi-consumer channels for message passing"
+license = "MIT OR Apache-2.0"
+notices = [
+  "Copyright (c) 2009 The Go Authors. All rights reserved.",
+  "Copyright (c) 2019 The Crossbeam Project Developers",
+  "September 28, 1979), the Rome Convention of 1961, the WIPO Copyright",
+  "and the Universal Copyright Convention (as revised on July 24, 1971).",
+]
+repository = "https://github.com/crossbeam-rs/crossbeam"
+homepage = "https://github.com/crossbeam-rs/crossbeam/tree/master/crossbeam-channel"
+
+[[dependencies]]
+name = "crossbeam-epoch"
+version = "0.9.18"
+description = "Epoch-based garbage collection"
+license = "MIT OR Apache-2.0"
+notices = ["Copyright (c) 2019 The Crossbeam Project Developers"]
+repository = "https://github.com/crossbeam-rs/crossbeam"
+homepage = "https://github.com/crossbeam-rs/crossbeam/tree/master/crossbeam-epoch"
+
+[[dependencies]]
+name = "crossbeam-utils"
+version = "0.8.21"
+description = "Utilities for concurrent programming"
+license = "MIT OR Apache-2.0"
+notices = ["Copyright (c) 2019 The Crossbeam Project Developers"]
+repository = "https://github.com/crossbeam-rs/crossbeam"
+homepage = "https://github.com/crossbeam-rs/crossbeam/tree/master/crossbeam-utils"
+
+[[dependencies]]
 name = "ddapi-rs"
-version = "0.5.1"
+version = "0.6.0"
 description = "This module is rewritten from another module [ddapi](https://github.com/ByFox213/ddapi)"
 license = "MIT"
 notices = ["Copyright (c) 2024 ByFox"]
@@ -308,6 +360,25 @@ authors = [
 repository = "https://github.com/lambda-fairy/rust-errno"
 
 [[dependencies]]
+name = "event-listener"
+version = "5.4.1"
+description = "Notify async tasks or threads"
+license = "Apache-2.0 OR MIT"
+authors = [
+  "Stjepan Glavina <stjepang@gmail.com>",
+  "John Nunley <dev@notgull.net>",
+]
+repository = "https://github.com/smol-rs/event-listener"
+
+[[dependencies]]
+name = "event-listener-strategy"
+version = "0.5.4"
+description = "Block or poll on event_listener easily"
+license = "Apache-2.0 OR MIT"
+authors = ["John Nunley <dev@notgull.net>"]
+repository = "https://github.com/smol-rs/event-listener-strategy"
+
+[[dependencies]]
 name = "fastrand"
 version = "2.3.0"
 description = "A simple and fast random number generator"
@@ -380,6 +451,20 @@ repository = "https://github.com/rust-lang/futures-rs"
 homepage = "https://rust-lang.github.io/futures-rs"
 
 [[dependencies]]
+name = "futures-macro"
+version = "0.3.31"
+description = """
+The futures-rs procedural macro implementations.
+"""
+license = "MIT OR Apache-2.0"
+notices = [
+  "Copyright (c) 2016 Alex Crichton",
+  "Copyright (c) 2017 The Tokio Authors",
+]
+repository = "https://github.com/rust-lang/futures-rs"
+homepage = "https://rust-lang.github.io/futures-rs"
+
+[[dependencies]]
 name = "futures-sink"
 version = "0.3.31"
 description = """
@@ -420,6 +505,15 @@ notices = [
 ]
 repository = "https://github.com/rust-lang/futures-rs"
 homepage = "https://rust-lang.github.io/futures-rs"
+
+[[dependencies]]
+name = "generator"
+version = "0.8.5"
+description = "Stackfull Generator Library in Rust"
+license = "MIT/Apache-2.0"
+notices = ["Copyright (c) 2017 Xudong Huang"]
+authors = ["Xudong Huang <huangxu008@hotmail.com>"]
+repository = "https://github.com/Xudong-Huang/generator-rs.git"
 
 [[dependencies]]
 name = "getrandom"
@@ -793,7 +887,7 @@ repository = "https://github.com/rust-lang-nursery/lazy-static.rs"
 
 [[dependencies]]
 name = "libc"
-version = "0.2.174"
+version = "0.2.175"
 description = "Raw FFI bindings to platform libraries like libc."
 license = "MIT OR Apache-2.0"
 notices = ["Copyright (c) 2014-2020 The Rust Project Developers"]
@@ -836,6 +930,26 @@ license = "MIT OR Apache-2.0"
 notices = ["Copyright (c) 2014 The Rust Project Developers"]
 authors = ["The Rust Project Developers"]
 repository = "https://github.com/rust-lang/log"
+
+[[dependencies]]
+name = "loom"
+version = "0.7.2"
+description = "Permutation testing for concurrent code"
+license = "MIT"
+notices = ["Copyright (c) 2019 Carl Lerche"]
+authors = ["Carl Lerche <me@carllerche.com>"]
+repository = "https://github.com/tokio-rs/loom"
+
+[[dependencies]]
+name = "matchers"
+version = "0.1.0"
+description = """
+Regex matching on character and byte streams.
+"""
+license = "MIT"
+notices = ["Copyright (c) 2019 Eliza Weisman"]
+authors = ["Eliza Weisman <eliza@buoyant.io>"]
+repository = "https://github.com/hawkw/matchers"
 
 [[dependencies]]
 name = "memchr"
@@ -891,6 +1005,17 @@ authors = [
 repository = "https://github.com/tokio-rs/mio"
 
 [[dependencies]]
+name = "moka"
+version = "0.12.10"
+description = "A fast and concurrent cache library inspired by Java Caffeine"
+license = "MIT OR Apache-2.0"
+notices = [
+  "Copyright (c) 2020 - 2024 Tatsuya Kawano",
+  "Copyright 2020 - 2024 Tatsuya Kawano",
+]
+repository = "https://github.com/moka-rs/moka"
+
+[[dependencies]]
 name = "native-tls"
 version = "0.2.14"
 description = "A wrapper over a platform's native TLS implementation"
@@ -898,6 +1023,19 @@ license = "MIT OR Apache-2.0"
 notices = ["Copyright (c) 2016 The rust-native-tls Developers"]
 authors = ["Steven Fackler <sfackler@gmail.com>"]
 repository = "https://github.com/sfackler/rust-native-tls"
+
+[[dependencies]]
+name = "nu-ansi-term"
+version = "0.46.0"
+description = "Library for ANSI terminal colors and styles (bold, underline)"
+license = "MIT"
+authors = [
+  "ogham@bsago.me",
+  "Ryan Scheel (Havvy) <ryan.havvy@gmail.com>",
+  "Josh Triplett <josh@joshtriplett.org>",
+  "The Nushell Project Developers",
+]
+repository = "https://github.com/nushell/nu-ansi-term"
 
 [[dependencies]]
 name = "num-traits"
@@ -970,6 +1108,27 @@ authors = [
   "Steven Fackler <sfackler@gmail.com>",
 ]
 repository = "https://github.com/sfackler/rust-openssl"
+
+[[dependencies]]
+name = "overload"
+version = "0.1.1"
+description = "Provides a macro to simplify operator overloading."
+license = "MIT"
+notices = ["Copyright (c) 2019 Daniel Augusto Rizzi Salvadori"]
+authors = ["Daniel Salvadori <danaugrs@gmail.com>"]
+repository = "https://github.com/danaugrs/overload"
+
+[[dependencies]]
+name = "parking"
+version = "2.2.1"
+description = "Thread parking and unparking"
+license = "Apache-2.0 OR MIT"
+notices = ["Copyright 2014-2020 The Rust Project Developers"]
+authors = [
+  "Stjepan Glavina <stjepang@gmail.com>",
+  "The Rust Project Developers",
+]
+repository = "https://github.com/smol-rs/parking"
 
 [[dependencies]]
 name = "parking_lot"
@@ -1063,7 +1222,7 @@ homepage = "https://icu4x.unicode.org"
 
 [[dependencies]]
 name = "proc-macro2"
-version = "1.0.95"
+version = "1.0.97"
 description = "A substitute implementation of the compiler's `proc_macro` API to decouple token-based libraries from the procedural macro use case."
 license = "MIT OR Apache-2.0"
 authors = [
@@ -1142,12 +1301,30 @@ repository = "https://github.com/rust-lang/regex"
 
 [[dependencies]]
 name = "regex-automata"
+version = "0.1.10"
+description = "Automata construction and matching using regular expressions."
+license = "Unlicense/MIT"
+notices = ["Copyright (c) 2015 Andrew Gallant"]
+authors = ["Andrew Gallant <jamslam@gmail.com>"]
+repository = "https://github.com/BurntSushi/regex-automata"
+
+[[dependencies]]
+name = "regex-automata"
 version = "0.4.9"
 description = "Automata construction and matching using regular expressions."
 license = "MIT OR Apache-2.0"
 notices = ["Copyright (c) 2014 The Rust Project Developers"]
 authors = ["The Rust Project Developers", "Andrew Gallant <jamslam@gmail.com>"]
 repository = "https://github.com/rust-lang/regex/tree/master/regex-automata"
+
+[[dependencies]]
+name = "regex-syntax"
+version = "0.6.29"
+description = "A regular expression parser."
+license = "MIT OR Apache-2.0"
+notices = ["Copyright (c) 2014 The Rust Project Developers"]
+authors = ["The Rust Project Developers"]
+repository = "https://github.com/rust-lang/regex"
 
 [[dependencies]]
 name = "regex-syntax"
@@ -1160,7 +1337,7 @@ repository = "https://github.com/rust-lang/regex/tree/master/regex-syntax"
 
 [[dependencies]]
 name = "reqwest"
-version = "0.12.22"
+version = "0.12.23"
 description = "higher level HTTP client library"
 license = "MIT OR Apache-2.0"
 notices = [
@@ -1192,6 +1369,14 @@ license = "MIT/Apache-2.0"
 notices = ["Copyright (c) 2014 Alex Crichton"]
 authors = ["Alex Crichton <alex@alexcrichton.com>"]
 repository = "https://github.com/rust-lang/rustc-demangle"
+
+[[dependencies]]
+name = "rustc_version"
+version = "0.4.1"
+description = "A library for querying the version of a installed rustc compiler"
+license = "MIT OR Apache-2.0"
+notices = ["Copyright (c) 2016 The Rust Project Developers"]
+repository = "https://github.com/djc/rustc-version-rs"
 
 [[dependencies]]
 name = "rustix"
@@ -1263,6 +1448,19 @@ authors = [
 repository = "https://github.com/steffengy/schannel-rs"
 
 [[dependencies]]
+name = "scoped-tls"
+version = "1.0.1"
+description = """
+Library implementation of the standard library's old `scoped_thread_local!`
+macro for providing scoped access to thread local storage (TLS) so any type can
+be stored into TLS.
+"""
+license = "MIT/Apache-2.0"
+notices = ["Copyright (c) 2014 Alex Crichton"]
+authors = ["Alex Crichton <alex@alexcrichton.com>"]
+repository = "https://github.com/alexcrichton/scoped-tls"
+
+[[dependencies]]
 name = "scopeguard"
 version = "1.2.0"
 description = """
@@ -1304,6 +1502,14 @@ authors = [
 ]
 repository = "https://github.com/kornelski/rust-security-framework"
 homepage = "https://lib.rs/crates/security-framework-sys"
+
+[[dependencies]]
+name = "semver"
+version = "1.0.26"
+description = "Parser and evaluator for Cargo's flavor of Semantic Versioning"
+license = "MIT OR Apache-2.0"
+authors = ["David Tolnay <dtolnay@gmail.com>"]
+repository = "https://github.com/dtolnay/semver"
 
 [[dependencies]]
 name = "serde"
@@ -1348,6 +1554,17 @@ license = "MIT/Apache-2.0"
 notices = ["Copyright (c) 2016 Anthony Ramine"]
 authors = ["Anthony Ramine <n.oxyde@gmail.com>"]
 repository = "https://github.com/nox/serde_urlencoded"
+
+[[dependencies]]
+name = "sharded-slab"
+version = "0.1.7"
+description = """
+A lock-free concurrent slab.
+"""
+license = "MIT"
+notices = ["Copyright (c) 2019 Eliza Weisman"]
+authors = ["Eliza Weisman <eliza@buoyant.io>"]
+repository = "https://github.com/hawkw/sharded-slab"
 
 [[dependencies]]
 name = "shlex"
@@ -1442,7 +1659,7 @@ homepage = "https://dalek.rs/"
 
 [[dependencies]]
 name = "syn"
-version = "2.0.104"
+version = "2.0.106"
 description = "Parser for Rust source code"
 license = "MIT OR Apache-2.0"
 authors = ["David Tolnay <dtolnay@gmail.com>"]
@@ -1485,6 +1702,15 @@ authors = ["Mullvad VPN"]
 repository = "https://github.com/mullvad/system-configuration-rs"
 
 [[dependencies]]
+name = "tagptr"
+version = "0.2.0"
+description = "Strongly typed atomic and non-atomic tagged pointers"
+license = "MIT/Apache-2.0"
+notices = ["Copyright (c) 2021 Oliver Giersch", "Copyright 2021 Oliver Giersch"]
+authors = ["Oliver Giersch"]
+repository = "https://github.com/oliver-giersch/tagptr.git"
+
+[[dependencies]]
 name = "tempfile"
 version = "3.20.0"
 description = "A library for managing temporary files and directories."
@@ -1509,7 +1735,7 @@ repository = "https://github.com/dtolnay/thiserror"
 
 [[dependencies]]
 name = "thiserror"
-version = "2.0.12"
+version = "2.0.14"
 description = "derive(Error)"
 license = "MIT OR Apache-2.0"
 authors = ["David Tolnay <dtolnay@gmail.com>"]
@@ -1525,11 +1751,20 @@ repository = "https://github.com/dtolnay/thiserror"
 
 [[dependencies]]
 name = "thiserror-impl"
-version = "2.0.12"
+version = "2.0.14"
 description = "Implementation detail of the `thiserror` crate"
 license = "MIT OR Apache-2.0"
 authors = ["David Tolnay <dtolnay@gmail.com>"]
 repository = "https://github.com/dtolnay/thiserror"
+
+[[dependencies]]
+name = "thread_local"
+version = "1.1.9"
+description = "Per-object thread-local storage"
+license = "MIT OR Apache-2.0"
+notices = ["Copyright (c) 2016 The Rust Project Developers"]
+authors = ["Amanieu d'Antras <amanieu@gmail.com>"]
+repository = "https://github.com/Amanieu/thread_local-rs"
 
 [[dependencies]]
 name = "tinystr"
@@ -1672,6 +1907,34 @@ repository = "https://github.com/tokio-rs/tracing"
 homepage = "https://tokio.rs"
 
 [[dependencies]]
+name = "tracing-log"
+version = "0.2.0"
+description = """
+Provides compatibility between `tracing` and the `log` crate.
+"""
+license = "MIT"
+notices = ["Copyright (c) 2019 Tokio Contributors"]
+authors = ["Tokio Contributors <team@tokio.rs>"]
+repository = "https://github.com/tokio-rs/tracing"
+homepage = "https://tokio.rs"
+
+[[dependencies]]
+name = "tracing-subscriber"
+version = "0.3.19"
+description = """
+Utilities for implementing and composing `tracing` subscribers.
+"""
+license = "MIT"
+notices = ["Copyright (c) 2019 Tokio Contributors"]
+authors = [
+  "Eliza Weisman <eliza@buoyant.io>",
+  "David Barsky <me@davidbarsky.com>",
+  "Tokio Contributors <team@tokio.rs>",
+]
+repository = "https://github.com/tokio-rs/tracing"
+homepage = "https://tokio.rs"
+
+[[dependencies]]
 name = "try-lock"
 version = "0.2.5"
 description = "A lightweight atomic lock."
@@ -1742,6 +2005,31 @@ authors = [
   "Christian Duerr <contact@christianduerr.com>",
 ]
 repository = "https://github.com/alacritty/vte"
+
+[[dependencies]]
+name = "uuid"
+version = "1.18.0"
+description = "A library to generate and parse UUIDs."
+license = "Apache-2.0 OR MIT"
+notices = [
+  "Copyright (c) 2014 The Rust Project Developers",
+  "Copyright (c) 2018 Ashley Mannix, Christopher Armstrong, Dylan DPC, Hunar Roop Kahlon",
+]
+authors = [
+  "Ashley Mannix<ashleymannix@live.com.au>",
+  "Dylan DPC<dylan.dpc@gmail.com>",
+  "Hunar Roop Kahlon<hunar.roop@gmail.com>",
+]
+repository = "https://github.com/uuid-rs/uuid"
+
+[[dependencies]]
+name = "valuable"
+version = "0.1.1"
+description = """
+Object-safe value inspection, used to pass un-typed structured data across trait-object boundaries.
+"""
+license = "MIT"
+repository = "https://github.com/tokio-rs/valuable"
 
 [[dependencies]]
 name = "vcpkg"
@@ -1864,12 +2152,62 @@ repository = "https://github.com/rustwasm/wasm-bindgen/tree/master/crates/web-sy
 homepage = "https://rustwasm.github.io/wasm-bindgen/web-sys/index.html"
 
 [[dependencies]]
+name = "winapi"
+version = "0.3.9"
+description = "Raw FFI bindings for all of Windows API."
+license = "MIT/Apache-2.0"
+notices = ["Copyright (c) 2015-2018 The winapi-rs Developers"]
+authors = ["Peter Atashian <retep998@gmail.com>"]
+repository = "https://github.com/retep998/winapi-rs"
+
+[[dependencies]]
+name = "winapi-i686-pc-windows-gnu"
+version = "0.4.0"
+description = "Import libraries for the i686-pc-windows-gnu target. Please don't use this crate directly, depend on winapi instead."
+license = "MIT/Apache-2.0"
+authors = ["Peter Atashian <retep998@gmail.com>"]
+repository = "https://github.com/retep998/winapi-rs"
+
+[[dependencies]]
+name = "winapi-x86_64-pc-windows-gnu"
+version = "0.4.0"
+description = "Import libraries for the x86_64-pc-windows-gnu target. Please don't use this crate directly, depend on winapi instead."
+license = "MIT/Apache-2.0"
+authors = ["Peter Atashian <retep998@gmail.com>"]
+repository = "https://github.com/retep998/winapi-rs"
+
+[[dependencies]]
+name = "windows"
+version = "0.61.3"
+description = "Rust for Windows"
+license = "MIT OR Apache-2.0"
+notices = ["Copyright (c) Microsoft Corporation."]
+authors = ["Microsoft"]
+repository = "https://github.com/microsoft/windows-rs"
+
+[[dependencies]]
+name = "windows-collections"
+version = "0.2.0"
+description = "Windows collection types"
+license = "MIT OR Apache-2.0"
+notices = ["Copyright (c) Microsoft Corporation."]
+repository = "https://github.com/microsoft/windows-rs"
+
+[[dependencies]]
 name = "windows-core"
 version = "0.61.2"
 description = "Core type support for COM and Windows"
 license = "MIT OR Apache-2.0"
 notices = ["Copyright (c) Microsoft Corporation."]
 authors = ["Microsoft"]
+repository = "https://github.com/microsoft/windows-rs"
+
+[[dependencies]]
+name = "windows-future"
+version = "0.2.1"
+description = "Windows async types"
+license = "MIT OR Apache-2.0"
+notices = ["Copyright (c) Microsoft Corporation."]
 repository = "https://github.com/microsoft/windows-rs"
 
 [[dependencies]]
@@ -1897,6 +2235,14 @@ description = "Linking for Windows"
 license = "MIT OR Apache-2.0"
 notices = ["Copyright (c) Microsoft Corporation."]
 authors = ["Microsoft"]
+repository = "https://github.com/microsoft/windows-rs"
+
+[[dependencies]]
+name = "windows-numerics"
+version = "0.2.0"
+description = "Windows numeric types"
+license = "MIT OR Apache-2.0"
+notices = ["Copyright (c) Microsoft Corporation."]
 repository = "https://github.com/microsoft/windows-rs"
 
 [[dependencies]]
@@ -1966,6 +2312,15 @@ repository = "https://github.com/microsoft/windows-rs"
 name = "windows-targets"
 version = "0.53.3"
 description = "Import libs for Windows"
+license = "MIT OR Apache-2.0"
+notices = ["Copyright (c) Microsoft Corporation."]
+authors = ["Microsoft"]
+repository = "https://github.com/microsoft/windows-rs"
+
+[[dependencies]]
+name = "windows-threading"
+version = "0.1.0"
+description = "Windows threading"
 license = "MIT OR Apache-2.0"
 notices = ["Copyright (c) Microsoft Corporation."]
 authors = ["Microsoft"]
