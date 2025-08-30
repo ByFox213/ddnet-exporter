@@ -942,7 +942,7 @@ repository = "https://github.com/tokio-rs/loom"
 
 [[dependencies]]
 name = "matchers"
-version = "0.1.0"
+version = "0.2.0"
 description = """
 Regex matching on character and byte streams.
 """
@@ -1026,9 +1026,13 @@ repository = "https://github.com/sfackler/rust-native-tls"
 
 [[dependencies]]
 name = "nu-ansi-term"
-version = "0.46.0"
+version = "0.50.1"
 description = "Library for ANSI terminal colors and styles (bold, underline)"
 license = "MIT"
+notices = [
+  "Copyright (c) 2014 Benjamin Sago",
+  "Copyright (c) 2021-2022 The Nushell Project Developers",
+]
 authors = [
   "ogham@bsago.me",
   "Ryan Scheel (Havvy) <ryan.havvy@gmail.com>",
@@ -1108,15 +1112,6 @@ authors = [
   "Steven Fackler <sfackler@gmail.com>",
 ]
 repository = "https://github.com/sfackler/rust-openssl"
-
-[[dependencies]]
-name = "overload"
-version = "0.1.1"
-description = "Provides a macro to simplify operator overloading."
-license = "MIT"
-notices = ["Copyright (c) 2019 Daniel Augusto Rizzi Salvadori"]
-authors = ["Daniel Salvadori <danaugrs@gmail.com>"]
-repository = "https://github.com/danaugrs/overload"
 
 [[dependencies]]
 name = "parking"
@@ -1212,7 +1207,7 @@ repository = "https://github.com/taiki-e/portable-atomic"
 
 [[dependencies]]
 name = "potential_utf"
-version = "0.1.2"
+version = "0.1.3"
 description = "Unvalidated string and character types"
 license = "Unicode-3.0"
 notices = ["Copyright © 2020-2024 Unicode, Inc."]
@@ -1289,7 +1284,7 @@ repository = "https://gitlab.redox-os.org/redox-os/syscall"
 
 [[dependencies]]
 name = "regex"
-version = "1.11.1"
+version = "1.11.2"
 description = """
 An implementation of regular expressions for Rust. This implementation uses
 finite automata and guarantees linear time matching on all inputs.
@@ -1301,39 +1296,23 @@ repository = "https://github.com/rust-lang/regex"
 
 [[dependencies]]
 name = "regex-automata"
-version = "0.1.10"
-description = "Automata construction and matching using regular expressions."
-license = "Unlicense/MIT"
-notices = ["Copyright (c) 2015 Andrew Gallant"]
-authors = ["Andrew Gallant <jamslam@gmail.com>"]
-repository = "https://github.com/BurntSushi/regex-automata"
-
-[[dependencies]]
-name = "regex-automata"
-version = "0.4.9"
+version = "0.4.10"
 description = "Automata construction and matching using regular expressions."
 license = "MIT OR Apache-2.0"
 notices = ["Copyright (c) 2014 The Rust Project Developers"]
 authors = ["The Rust Project Developers", "Andrew Gallant <jamslam@gmail.com>"]
-repository = "https://github.com/rust-lang/regex/tree/master/regex-automata"
-
-[[dependencies]]
-name = "regex-syntax"
-version = "0.6.29"
-description = "A regular expression parser."
-license = "MIT OR Apache-2.0"
-notices = ["Copyright (c) 2014 The Rust Project Developers"]
-authors = ["The Rust Project Developers"]
 repository = "https://github.com/rust-lang/regex"
+homepage = "https://github.com/rust-lang/regex/tree/master/regex-automata"
 
 [[dependencies]]
 name = "regex-syntax"
-version = "0.8.5"
+version = "0.8.6"
 description = "A regular expression parser."
 license = "MIT OR Apache-2.0"
 notices = ["Copyright (c) 2014 The Rust Project Developers"]
 authors = ["The Rust Project Developers", "Andrew Gallant <jamslam@gmail.com>"]
-repository = "https://github.com/rust-lang/regex/tree/master/regex-syntax"
+repository = "https://github.com/rust-lang/regex"
+homepage = "https://github.com/rust-lang/regex/tree/master/regex-syntax"
 
 [[dependencies]]
 name = "reqwest"
@@ -1920,7 +1899,7 @@ homepage = "https://tokio.rs"
 
 [[dependencies]]
 name = "tracing-subscriber"
-version = "0.3.19"
+version = "0.3.20"
 description = """
 Utilities for implementing and composing `tracing` subscribers.
 """
@@ -1966,7 +1945,7 @@ repository = "https://github.com/briansmith/untrusted"
 
 [[dependencies]]
 name = "url"
-version = "2.5.6"
+version = "2.5.7"
 description = "URL library for Rust, based on the WHATWG URL Standard"
 license = "MIT OR Apache-2.0"
 notices = ["Copyright (c) 2013-2025 The rust-url developers"]
@@ -2062,7 +2041,7 @@ repository = "https://github.com/bytecodealliance/wasi"
 
 [[dependencies]]
 name = "wasi"
-version = "0.14.2+wasi-0.2.4"
+version = "0.14.3+wasi-0.2.4"
 description = "WASI API bindings for Rust"
 license = "Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT"
 authors = ["The Cranelift Project Developers"]
@@ -2150,31 +2129,6 @@ notices = ["Copyright (c) 2014 Alex Crichton"]
 authors = ["The wasm-bindgen Developers"]
 repository = "https://github.com/rustwasm/wasm-bindgen/tree/master/crates/web-sys"
 homepage = "https://rustwasm.github.io/wasm-bindgen/web-sys/index.html"
-
-[[dependencies]]
-name = "winapi"
-version = "0.3.9"
-description = "Raw FFI bindings for all of Windows API."
-license = "MIT/Apache-2.0"
-notices = ["Copyright (c) 2015-2018 The winapi-rs Developers"]
-authors = ["Peter Atashian <retep998@gmail.com>"]
-repository = "https://github.com/retep998/winapi-rs"
-
-[[dependencies]]
-name = "winapi-i686-pc-windows-gnu"
-version = "0.4.0"
-description = "Import libraries for the i686-pc-windows-gnu target. Please don't use this crate directly, depend on winapi instead."
-license = "MIT/Apache-2.0"
-authors = ["Peter Atashian <retep998@gmail.com>"]
-repository = "https://github.com/retep998/winapi-rs"
-
-[[dependencies]]
-name = "winapi-x86_64-pc-windows-gnu"
-version = "0.4.0"
-description = "Import libraries for the x86_64-pc-windows-gnu target. Please don't use this crate directly, depend on winapi instead."
-license = "MIT/Apache-2.0"
-authors = ["Peter Atashian <retep998@gmail.com>"]
-repository = "https://github.com/retep998/winapi-rs"
 
 [[dependencies]]
 name = "windows"
@@ -2471,12 +2425,14 @@ authors = ["Microsoft"]
 repository = "https://github.com/microsoft/windows-rs"
 
 [[dependencies]]
-name = "wit-bindgen-rt"
-version = "0.39.0"
+name = "wit-bindgen"
+version = "0.45.0"
 description = """
-Runtime support for the `wit-bindgen` crate
+Rust bindings generator and runtime support for WIT and the component model.
+Used when compiling Rust programs to the component model.
 """
 license = "Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT"
+authors = ["Alex Crichton <alex@alexcrichton.com>"]
 repository = "https://github.com/bytecodealliance/wit-bindgen"
 
 [[dependencies]]
