@@ -1,6 +1,6 @@
 [[dependencies]]
 name = "addr2line"
-version = "0.24.2"
+version = "0.25.1"
 description = "A cross-platform symbolication library written in Rust, using `gimli`"
 license = "Apache-2.0 OR MIT"
 notices = ["Copyright (c) 2016-2018 The gimli Developers"]
@@ -115,7 +115,7 @@ repository = "https://github.com/cuviper/autocfg"
 
 [[dependencies]]
 name = "backtrace"
-version = "0.3.75"
+version = "0.3.76"
 description = """
 A library to acquire a stack trace (backtrace) at runtime in a Rust program.
 """
@@ -167,7 +167,7 @@ repository = "https://github.com/tokio-rs/bytes"
 
 [[dependencies]]
 name = "cc"
-version = "1.2.38"
+version = "1.2.39"
 description = """
 A build-time dependency for Cargo build scripts to assist in invoking the native
 C compiler to compile native C code into a static archive to be linked into Rust
@@ -506,15 +506,6 @@ repository = "https://github.com/rust-lang/futures-rs"
 homepage = "https://rust-lang.github.io/futures-rs"
 
 [[dependencies]]
-name = "generator"
-version = "0.8.7"
-description = "Stackfull Generator Library in Rust"
-license = "MIT/Apache-2.0"
-notices = ["Copyright (c) 2017 Xudong Huang"]
-authors = ["Xudong Huang <huangxu008@hotmail.com>"]
-repository = "https://github.com/Xudong-Huang/generator-rs.git"
-
-[[dependencies]]
 name = "getrandom"
 version = "0.2.16"
 description = "A small cross-platform library for retrieving random data from system source"
@@ -540,7 +531,7 @@ repository = "https://github.com/rust-random/getrandom"
 
 [[dependencies]]
 name = "gimli"
-version = "0.31.1"
+version = "0.32.3"
 description = "A library for reading and writing the DWARF debugging format."
 license = "MIT OR Apache-2.0"
 notices = ["Copyright (c) 2015 The Rust Project Developers"]
@@ -864,7 +855,7 @@ homepage = "https://github.com/BurntSushi/jiff/tree/master/crates/jiff-static"
 
 [[dependencies]]
 name = "js-sys"
-version = "0.3.80"
+version = "0.3.81"
 description = """
 Bindings for all JS global objects and functions in all JS environments like
 Node.js and browsers, built on `#[wasm_bindgen]` using the `wasm-bindgen` crate.
@@ -886,7 +877,7 @@ repository = "https://github.com/rust-lang-nursery/lazy-static.rs"
 
 [[dependencies]]
 name = "libc"
-version = "0.2.175"
+version = "0.2.176"
 description = "Raw FFI bindings to platform libraries like libc."
 license = "MIT OR Apache-2.0"
 notices = ["Copyright (c) 2014-2020 The Rust Project Developers"]
@@ -931,28 +922,8 @@ authors = ["The Rust Project Developers"]
 repository = "https://github.com/rust-lang/log"
 
 [[dependencies]]
-name = "loom"
-version = "0.7.2"
-description = "Permutation testing for concurrent code"
-license = "MIT"
-notices = ["Copyright (c) 2019 Carl Lerche"]
-authors = ["Carl Lerche <me@carllerche.com>"]
-repository = "https://github.com/tokio-rs/loom"
-
-[[dependencies]]
-name = "matchers"
-version = "0.2.0"
-description = """
-Regex matching on character and byte streams.
-"""
-license = "MIT"
-notices = ["Copyright (c) 2019 Eliza Weisman"]
-authors = ["Eliza Weisman <eliza@buoyant.io>"]
-repository = "https://github.com/hawkw/matchers"
-
-[[dependencies]]
 name = "memchr"
-version = "2.7.5"
+version = "2.7.6"
 description = """
 Provides extremely fast (uses SIMD on x86_64, aarch64 and wasm32) routines for
 1, 2 or 3 byte search and single substring search.
@@ -1005,12 +976,12 @@ repository = "https://github.com/tokio-rs/mio"
 
 [[dependencies]]
 name = "moka"
-version = "0.12.10"
+version = "0.12.11"
 description = "A fast and concurrent cache library inspired by Java Caffeine"
-license = "MIT OR Apache-2.0"
+license = "(MIT OR Apache-2.0) AND Apache-2.0"
 notices = [
-  "Copyright (c) 2020 - 2024 Tatsuya Kawano",
-  "Copyright 2020 - 2024 Tatsuya Kawano",
+  "Copyright (c) 2020 - 2025 Tatsuya Kawano",
+  "Copyright 2020 - 2025 Tatsuya Kawano",
 ]
 repository = "https://github.com/moka-rs/moka"
 
@@ -1024,23 +995,6 @@ authors = ["Steven Fackler <sfackler@gmail.com>"]
 repository = "https://github.com/sfackler/rust-native-tls"
 
 [[dependencies]]
-name = "nu-ansi-term"
-version = "0.50.1"
-description = "Library for ANSI terminal colors and styles (bold, underline)"
-license = "MIT"
-notices = [
-  "Copyright (c) 2014 Benjamin Sago",
-  "Copyright (c) 2021-2022 The Nushell Project Developers",
-]
-authors = [
-  "ogham@bsago.me",
-  "Ryan Scheel (Havvy) <ryan.havvy@gmail.com>",
-  "Josh Triplett <josh@joshtriplett.org>",
-  "The Nushell Project Developers",
-]
-repository = "https://github.com/nushell/nu-ansi-term"
-
-[[dependencies]]
 name = "num-traits"
 version = "0.2.19"
 description = "Numeric traits for generic mathematics"
@@ -1051,7 +1005,7 @@ repository = "https://github.com/rust-num/num-traits"
 
 [[dependencies]]
 name = "object"
-version = "0.36.7"
+version = "0.37.3"
 description = "A unified interface for reading and writing object file formats."
 license = "Apache-2.0 OR MIT"
 notices = ["Copyright (c) 2015 The Gimli Developers"]
@@ -1283,7 +1237,7 @@ repository = "https://gitlab.redox-os.org/redox-os/syscall"
 
 [[dependencies]]
 name = "regex"
-version = "1.11.2"
+version = "1.11.3"
 description = """
 An implementation of regular expressions for Rust. This implementation uses
 finite automata and guarantees linear time matching on all inputs.
@@ -1295,7 +1249,7 @@ repository = "https://github.com/rust-lang/regex"
 
 [[dependencies]]
 name = "regex-automata"
-version = "0.4.10"
+version = "0.4.11"
 description = "Automata construction and matching using regular expressions."
 license = "MIT OR Apache-2.0"
 notices = ["Copyright (c) 2014 The Rust Project Developers"]
@@ -1426,19 +1380,6 @@ authors = [
 repository = "https://github.com/steffengy/schannel-rs"
 
 [[dependencies]]
-name = "scoped-tls"
-version = "1.0.1"
-description = """
-Library implementation of the standard library's old `scoped_thread_local!`
-macro for providing scoped access to thread local storage (TLS) so any type can
-be stored into TLS.
-"""
-license = "MIT/Apache-2.0"
-notices = ["Copyright (c) 2014 Alex Crichton"]
-authors = ["Alex Crichton <alex@alexcrichton.com>"]
-repository = "https://github.com/alexcrichton/scoped-tls"
-
-[[dependencies]]
 name = "scopeguard"
 version = "1.2.0"
 description = """
@@ -1491,7 +1432,7 @@ repository = "https://github.com/dtolnay/semver"
 
 [[dependencies]]
 name = "serde"
-version = "1.0.225"
+version = "1.0.227"
 description = "A generic serialization/deserialization framework"
 license = "MIT OR Apache-2.0"
 authors = [
@@ -1503,7 +1444,7 @@ homepage = "https://serde.rs"
 
 [[dependencies]]
 name = "serde_core"
-version = "1.0.225"
+version = "1.0.227"
 description = "Serde traits only, with no support for derive -- use the `serde` crate instead"
 license = "MIT OR Apache-2.0"
 authors = [
@@ -1515,7 +1456,7 @@ homepage = "https://serde.rs"
 
 [[dependencies]]
 name = "serde_derive"
-version = "1.0.225"
+version = "1.0.227"
 description = "Macros 1.1 implementation of #[derive(Serialize, Deserialize)]"
 license = "MIT OR Apache-2.0"
 authors = [
@@ -1544,17 +1485,6 @@ license = "MIT/Apache-2.0"
 notices = ["Copyright (c) 2016 Anthony Ramine"]
 authors = ["Anthony Ramine <n.oxyde@gmail.com>"]
 repository = "https://github.com/nox/serde_urlencoded"
-
-[[dependencies]]
-name = "sharded-slab"
-version = "0.1.7"
-description = """
-A lock-free concurrent slab.
-"""
-license = "MIT"
-notices = ["Copyright (c) 2019 Eliza Weisman"]
-authors = ["Eliza Weisman <eliza@buoyant.io>"]
-repository = "https://github.com/hawkw/sharded-slab"
 
 [[dependencies]]
 name = "shlex"
@@ -1702,7 +1632,7 @@ repository = "https://github.com/oliver-giersch/tagptr.git"
 
 [[dependencies]]
 name = "tempfile"
-version = "3.22.0"
+version = "3.23.0"
 description = "A library for managing temporary files and directories."
 license = "MIT OR Apache-2.0"
 notices = ["Copyright (c) 2015 Steven Allen"]
@@ -1746,15 +1676,6 @@ description = "Implementation detail of the `thiserror` crate"
 license = "MIT OR Apache-2.0"
 authors = ["David Tolnay <dtolnay@gmail.com>"]
 repository = "https://github.com/dtolnay/thiserror"
-
-[[dependencies]]
-name = "thread_local"
-version = "1.1.9"
-description = "Per-object thread-local storage"
-license = "MIT OR Apache-2.0"
-notices = ["Copyright (c) 2016 The Rust Project Developers"]
-authors = ["Amanieu d'Antras <amanieu@gmail.com>"]
-repository = "https://github.com/Amanieu/thread_local-rs"
 
 [[dependencies]]
 name = "tinystr"
@@ -1808,7 +1729,7 @@ homepage = "https://tokio.rs"
 
 [[dependencies]]
 name = "tokio-rustls"
-version = "0.26.3"
+version = "0.26.4"
 description = "Asynchronous TLS/SSL streams for Tokio using Rustls."
 license = "MIT OR Apache-2.0"
 notices = ["Copyright (c) 2017 quininer kel", "Copyright 2017 quininer kel"]
@@ -1893,34 +1814,6 @@ Core primitives for application-level tracing.
 license = "MIT"
 notices = ["Copyright (c) 2019 Tokio Contributors"]
 authors = ["Tokio Contributors <team@tokio.rs>"]
-repository = "https://github.com/tokio-rs/tracing"
-homepage = "https://tokio.rs"
-
-[[dependencies]]
-name = "tracing-log"
-version = "0.2.0"
-description = """
-Provides compatibility between `tracing` and the `log` crate.
-"""
-license = "MIT"
-notices = ["Copyright (c) 2019 Tokio Contributors"]
-authors = ["Tokio Contributors <team@tokio.rs>"]
-repository = "https://github.com/tokio-rs/tracing"
-homepage = "https://tokio.rs"
-
-[[dependencies]]
-name = "tracing-subscriber"
-version = "0.3.20"
-description = """
-Utilities for implementing and composing `tracing` subscribers.
-"""
-license = "MIT"
-notices = ["Copyright (c) 2019 Tokio Contributors"]
-authors = [
-  "Eliza Weisman <eliza@buoyant.io>",
-  "David Barsky <me@davidbarsky.com>",
-  "Tokio Contributors <team@tokio.rs>",
-]
 repository = "https://github.com/tokio-rs/tracing"
 homepage = "https://tokio.rs"
 
@@ -2013,15 +1906,6 @@ authors = [
 repository = "https://github.com/uuid-rs/uuid"
 
 [[dependencies]]
-name = "valuable"
-version = "0.1.1"
-description = """
-Object-safe value inspection, used to pass un-typed structured data across trait-object boundaries.
-"""
-license = "MIT"
-repository = "https://github.com/tokio-rs/valuable"
-
-[[dependencies]]
 name = "vcpkg"
 version = "0.2.15"
 description = """
@@ -2066,7 +1950,7 @@ repository = "https://github.com/bytecodealliance/wasi-rs"
 
 [[dependencies]]
 name = "wasm-bindgen"
-version = "0.2.103"
+version = "0.2.104"
 description = """
 Easy support for interacting between JS and Rust.
 """
@@ -2078,7 +1962,7 @@ homepage = "https://wasm-bindgen.github.io/wasm-bindgen"
 
 [[dependencies]]
 name = "wasm-bindgen-backend"
-version = "0.2.103"
+version = "0.2.104"
 description = """
 Backend code generation of the wasm-bindgen tool
 """
@@ -2090,7 +1974,7 @@ homepage = "https://wasm-bindgen.github.io/wasm-bindgen/"
 
 [[dependencies]]
 name = "wasm-bindgen-futures"
-version = "0.4.53"
+version = "0.4.54"
 description = "Bridging the gap between Rust Futures and JavaScript Promises"
 license = "MIT OR Apache-2.0"
 notices = ["Copyright (c) 2014 Alex Crichton"]
@@ -2100,7 +1984,7 @@ homepage = "https://wasm-bindgen.github.io/wasm-bindgen/"
 
 [[dependencies]]
 name = "wasm-bindgen-macro"
-version = "0.2.103"
+version = "0.2.104"
 description = """
 Definition of the `#[wasm_bindgen]` attribute, an internal dependency
 """
@@ -2112,7 +1996,7 @@ homepage = "https://wasm-bindgen.github.io/wasm-bindgen/"
 
 [[dependencies]]
 name = "wasm-bindgen-macro-support"
-version = "0.2.103"
+version = "0.2.104"
 description = """
 The part of the implementation of the `#[wasm_bindgen]` attribute that is not in the shared backend crate
 """
@@ -2124,7 +2008,7 @@ homepage = "https://wasm-bindgen.github.io/wasm-bindgen/"
 
 [[dependencies]]
 name = "wasm-bindgen-shared"
-version = "0.2.103"
+version = "0.2.104"
 description = """
 Shared support between wasm-bindgen and wasm-bindgen cli, an internal
 dependency.
@@ -2137,7 +2021,7 @@ homepage = "https://wasm-bindgen.github.io/wasm-bindgen/"
 
 [[dependencies]]
 name = "web-sys"
-version = "0.3.80"
+version = "0.3.81"
 description = """
 Bindings for all Web APIs, a procedurally generated crate from WebIDL
 """
@@ -2148,63 +2032,27 @@ repository = "https://github.com/wasm-bindgen/wasm-bindgen/tree/master/crates/we
 homepage = "https://wasm-bindgen.github.io/wasm-bindgen/web-sys/index.html"
 
 [[dependencies]]
-name = "windows"
-version = "0.61.3"
-description = "Rust for Windows"
-license = "MIT OR Apache-2.0"
-notices = ["Copyright (c) Microsoft Corporation."]
-authors = ["Microsoft"]
-repository = "https://github.com/microsoft/windows-rs"
-
-[[dependencies]]
-name = "windows-collections"
-version = "0.2.0"
-description = "Windows collection types"
-license = "MIT OR Apache-2.0"
-notices = ["Copyright (c) Microsoft Corporation."]
-repository = "https://github.com/microsoft/windows-rs"
-
-[[dependencies]]
 name = "windows-core"
-version = "0.61.2"
+version = "0.62.1"
 description = "Core type support for COM and Windows"
-license = "MIT OR Apache-2.0"
-notices = ["Copyright (c) Microsoft Corporation."]
-authors = ["Microsoft"]
-repository = "https://github.com/microsoft/windows-rs"
-
-[[dependencies]]
-name = "windows-core"
-version = "0.62.0"
-description = "Core type support for COM and Windows"
-license = "MIT OR Apache-2.0"
-notices = ["Copyright (c) Microsoft Corporation."]
-repository = "https://github.com/microsoft/windows-rs"
-
-[[dependencies]]
-name = "windows-future"
-version = "0.2.1"
-description = "Windows async types"
 license = "MIT OR Apache-2.0"
 notices = ["Copyright (c) Microsoft Corporation."]
 repository = "https://github.com/microsoft/windows-rs"
 
 [[dependencies]]
 name = "windows-implement"
-version = "0.60.0"
+version = "0.60.1"
 description = "The implement macro for the windows crate"
 license = "MIT OR Apache-2.0"
 notices = ["Copyright (c) Microsoft Corporation."]
-authors = ["Microsoft"]
 repository = "https://github.com/microsoft/windows-rs"
 
 [[dependencies]]
 name = "windows-interface"
-version = "0.59.1"
+version = "0.59.2"
 description = "The interface macro for the windows crate"
 license = "MIT OR Apache-2.0"
 notices = ["Copyright (c) Microsoft Corporation."]
-authors = ["Microsoft"]
 repository = "https://github.com/microsoft/windows-rs"
 
 [[dependencies]]
@@ -2220,14 +2068,6 @@ repository = "https://github.com/microsoft/windows-rs"
 name = "windows-link"
 version = "0.2.0"
 description = "Linking for Windows"
-license = "MIT OR Apache-2.0"
-notices = ["Copyright (c) Microsoft Corporation."]
-repository = "https://github.com/microsoft/windows-rs"
-
-[[dependencies]]
-name = "windows-numerics"
-version = "0.2.0"
-description = "Windows numeric types"
 license = "MIT OR Apache-2.0"
 notices = ["Copyright (c) Microsoft Corporation."]
 repository = "https://github.com/microsoft/windows-rs"
@@ -2304,7 +2144,7 @@ repository = "https://github.com/microsoft/windows-rs"
 
 [[dependencies]]
 name = "windows-sys"
-version = "0.61.0"
+version = "0.61.1"
 description = "Rust for Windows"
 license = "MIT OR Apache-2.0"
 notices = ["Copyright (c) Microsoft Corporation."]
@@ -2321,20 +2161,10 @@ repository = "https://github.com/microsoft/windows-rs"
 
 [[dependencies]]
 name = "windows-targets"
-version = "0.53.3"
+version = "0.53.4"
 description = "Import libs for Windows"
 license = "MIT OR Apache-2.0"
 notices = ["Copyright (c) Microsoft Corporation."]
-authors = ["Microsoft"]
-repository = "https://github.com/microsoft/windows-rs"
-
-[[dependencies]]
-name = "windows-threading"
-version = "0.1.0"
-description = "Windows threading"
-license = "MIT OR Apache-2.0"
-notices = ["Copyright (c) Microsoft Corporation."]
-authors = ["Microsoft"]
 repository = "https://github.com/microsoft/windows-rs"
 
 [[dependencies]]
