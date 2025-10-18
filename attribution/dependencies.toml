@@ -1,24 +1,4 @@
 [[dependencies]]
-name = "addr2line"
-version = "0.25.1"
-description = "A cross-platform symbolication library written in Rust, using `gimli`"
-license = "Apache-2.0 OR MIT"
-notices = ["Copyright (c) 2016-2018 The gimli Developers"]
-repository = "https://github.com/gimli-rs/addr2line"
-
-[[dependencies]]
-name = "adler2"
-version = "2.0.1"
-description = "A simple clean-room implementation of the Adler-32 checksum"
-license = "0BSD OR MIT OR Apache-2.0"
-notices = ["Copyright (C) Jonas Schievink <jonasschievink@gmail.com>"]
-authors = [
-  "Jonas Schievink <jonasschievink@gmail.com>",
-  "oyvindln <oyvindln@users.noreply.github.com>",
-]
-repository = "https://github.com/oyvindln/adler2"
-
-[[dependencies]]
 name = "aho-corasick"
 version = "1.1.3"
 description = "Fast multiple substring searching."
@@ -114,17 +94,6 @@ authors = ["Josh Stone <cuviper@gmail.com>"]
 repository = "https://github.com/cuviper/autocfg"
 
 [[dependencies]]
-name = "backtrace"
-version = "0.3.76"
-description = """
-A library to acquire a stack trace (backtrace) at runtime in a Rust program.
-"""
-license = "MIT OR Apache-2.0"
-notices = ["Copyright (c) 2014 Alex Crichton"]
-authors = ["The Rust Project Developers"]
-repository = "https://github.com/rust-lang/backtrace-rs"
-
-[[dependencies]]
 name = "base64"
 version = "0.22.1"
 description = "encodes and decodes base64 as bytes or utf8"
@@ -180,7 +149,7 @@ repository = "https://github.com/rust-lang/cc-rs"
 
 [[dependencies]]
 name = "cfg-if"
-version = "1.0.3"
+version = "1.0.4"
 description = """
 A macro to ergonomically define an item depending on a large number of #[cfg]
 parameters. Structured like an if-else chain, the first matching branch is the
@@ -302,7 +271,7 @@ homepage = "https://docs.rs/encoding_rs/"
 
 [[dependencies]]
 name = "env_filter"
-version = "0.1.3"
+version = "0.1.4"
 description = """
 Filter log events using environment variables
 """
@@ -519,7 +488,7 @@ repository = "https://github.com/rust-random/getrandom"
 
 [[dependencies]]
 name = "getrandom"
-version = "0.3.3"
+version = "0.3.4"
 description = "A small cross-platform library for retrieving random data from system source"
 license = "MIT OR Apache-2.0"
 notices = [
@@ -528,14 +497,6 @@ notices = [
 ]
 authors = ["The Rand Project Developers"]
 repository = "https://github.com/rust-random/getrandom"
-
-[[dependencies]]
-name = "gimli"
-version = "0.32.3"
-description = "A library for reading and writing the DWARF debugging format."
-license = "MIT OR Apache-2.0"
-notices = ["Copyright (c) 2015 The Rust Project Developers"]
-repository = "https://github.com/gimli-rs/gimli"
 
 [[dependencies]]
 name = "h2"
@@ -778,23 +739,11 @@ homepage = "https://docs.rs/crate/idna_adapter/latest"
 
 [[dependencies]]
 name = "indexmap"
-version = "2.11.4"
+version = "2.12.0"
 description = "A hash table with consistent order and fast iteration."
 license = "Apache-2.0 OR MIT"
 notices = ["Copyright (c) 2016--2017"]
 repository = "https://github.com/indexmap-rs/indexmap"
-
-[[dependencies]]
-name = "io-uring"
-version = "0.7.10"
-description = "The low-level `io_uring` userspace interface for Rust"
-license = "MIT OR Apache-2.0"
-notices = [
-  "Copyright (c) 2019 quininer@live.com",
-  "Copyright 2019 quininer kel",
-]
-authors = ["quininer <quininer@live.com>"]
-repository = "https://github.com/tokio-rs/io-uring"
 
 [[dependencies]]
 name = "ipnet"
@@ -943,27 +892,8 @@ authors = ["Sean McArthur <sean@seanmonstar.com>"]
 repository = "https://github.com/hyperium/mime"
 
 [[dependencies]]
-name = "miniz_oxide"
-version = "0.8.9"
-description = "DEFLATE compression and decompression library rewritten in Rust based on miniz"
-license = "MIT OR Zlib OR Apache-2.0"
-notices = [
-  "Copyright (c) 2017 Frommi",
-  "Copyright (c) 2017-2024 oyvindln",
-  "Copyright (c) 2020 Frommi",
-  "Copyright 2010-2014 Rich Geldreich and Tenacious Software LLC",
-  "Copyright 2013-2014 RAD Game Tools and Valve Software",
-]
-authors = [
-  "Frommi <daniil.liferenko@gmail.com>",
-  "oyvindln <oyvindln@users.noreply.github.com>",
-  "Rich Geldreich richgel99@gmail.com",
-]
-repository = "https://github.com/Frommi/miniz_oxide/tree/master/miniz_oxide"
-
-[[dependencies]]
 name = "mio"
-version = "1.0.4"
+version = "1.1.0"
 description = "Lightweight non-blocking I/O."
 license = "MIT"
 notices = ["Copyright (c) 2014 Carl Lerche and other MIO contributors"]
@@ -1004,14 +934,6 @@ authors = ["The Rust Project Developers"]
 repository = "https://github.com/rust-num/num-traits"
 
 [[dependencies]]
-name = "object"
-version = "0.37.3"
-description = "A unified interface for reading and writing object file formats."
-license = "Apache-2.0 OR MIT"
-notices = ["Copyright (c) 2015 The Gimli Developers"]
-repository = "https://github.com/gimli-rs/object"
-
-[[dependencies]]
 name = "once_cell"
 version = "1.21.3"
 description = "Single assignment cells and lazy values."
@@ -1029,12 +951,12 @@ repository = "https://github.com/polyfill-rs/once_cell_polyfill"
 
 [[dependencies]]
 name = "openssl"
-version = "0.10.73"
+version = "0.10.74"
 description = "OpenSSL bindings"
 license = "Apache-2.0"
 notices = ["Copyright 2011-2017 Google Inc."]
 authors = ["Steven Fackler <sfackler@gmail.com>"]
-repository = "https://github.com/sfackler/rust-openssl"
+repository = "https://github.com/rust-openssl/rust-openssl"
 
 [[dependencies]]
 name = "openssl-macros"
@@ -1056,7 +978,7 @@ repository = "https://github.com/alexcrichton/openssl-probe"
 
 [[dependencies]]
 name = "openssl-sys"
-version = "0.9.109"
+version = "0.9.110"
 description = "FFI bindings to OpenSSL"
 license = "MIT"
 notices = ["Copyright (c) 2014 Alex Crichton"]
@@ -1064,7 +986,7 @@ authors = [
   "Alex Crichton <alex@alexcrichton.com>",
   "Steven Fackler <sfackler@gmail.com>",
 ]
-repository = "https://github.com/sfackler/rust-openssl"
+repository = "https://github.com/rust-openssl/rust-openssl"
 
 [[dependencies]]
 name = "parking"
@@ -1237,7 +1159,7 @@ repository = "https://gitlab.redox-os.org/redox-os/syscall"
 
 [[dependencies]]
 name = "regex"
-version = "1.12.1"
+version = "1.12.2"
 description = """
 An implementation of regular expressions for Rust. This implementation uses
 finite automata and guarantees linear time matching on all inputs.
@@ -1249,7 +1171,7 @@ repository = "https://github.com/rust-lang/regex"
 
 [[dependencies]]
 name = "regex-automata"
-version = "0.4.12"
+version = "0.4.13"
 description = "Automata construction and matching using regular expressions."
 license = "MIT OR Apache-2.0"
 notices = ["Copyright (c) 2014 The Rust Project Developers"]
@@ -1259,7 +1181,7 @@ homepage = "https://github.com/rust-lang/regex/tree/master/regex-automata"
 
 [[dependencies]]
 name = "regex-syntax"
-version = "0.8.7"
+version = "0.8.8"
 description = "A regular expression parser."
 license = "MIT OR Apache-2.0"
 notices = ["Copyright (c) 2014 The Rust Project Developers"]
@@ -1269,7 +1191,7 @@ homepage = "https://github.com/rust-lang/regex/tree/master/regex-syntax"
 
 [[dependencies]]
 name = "reqwest"
-version = "0.12.23"
+version = "0.12.24"
 description = "higher level HTTP client library"
 license = "MIT OR Apache-2.0"
 notices = [
@@ -1292,17 +1214,6 @@ notices = [
 repository = "https://github.com/briansmith/ring"
 
 [[dependencies]]
-name = "rustc-demangle"
-version = "0.1.26"
-description = """
-Rust compiler symbol demangling.
-"""
-license = "MIT/Apache-2.0"
-notices = ["Copyright (c) 2014 Alex Crichton"]
-authors = ["Alex Crichton <alex@alexcrichton.com>"]
-repository = "https://github.com/rust-lang/rustc-demangle"
-
-[[dependencies]]
 name = "rustc_version"
 version = "0.4.1"
 description = "A library for querying the version of a installed rustc compiler"
@@ -1323,7 +1234,7 @@ repository = "https://github.com/bytecodealliance/rustix"
 
 [[dependencies]]
 name = "rustls"
-version = "0.23.32"
+version = "0.23.33"
 description = "Rustls is a modern TLS library written in Rust."
 license = "Apache-2.0 OR ISC OR MIT"
 notices = [
@@ -1537,7 +1448,7 @@ repository = "https://github.com/servo/rust-smallvec"
 
 [[dependencies]]
 name = "socket2"
-version = "0.6.0"
+version = "0.6.1"
 description = """
 Utilities for handling networking sockets with a maximal amount of configuration
 possible intended.
@@ -1688,7 +1599,7 @@ repository = "https://github.com/unicode-org/icu4x"
 
 [[dependencies]]
 name = "tokio"
-version = "1.47.1"
+version = "1.48.0"
 description = """
 An event-driven, non-blocking I/O platform for writing asynchronous I/O
 backed applications.
@@ -1701,7 +1612,7 @@ homepage = "https://tokio.rs"
 
 [[dependencies]]
 name = "tokio-macros"
-version = "2.5.0"
+version = "2.6.0"
 description = """
 Tokio's proc macros.
 """
@@ -1935,13 +1846,6 @@ authors = ["The Cranelift Project Developers"]
 repository = "https://github.com/bytecodealliance/wasi"
 
 [[dependencies]]
-name = "wasi"
-version = "0.14.7+wasi-0.2.4"
-description = "WASI API bindings for Rust"
-license = "Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT"
-repository = "https://github.com/bytecodealliance/wasi-rs"
-
-[[dependencies]]
 name = "wasip2"
 version = "1.0.1+wasi-0.2.4"
 description = "WASIp2 API bindings for Rust"
@@ -2118,15 +2022,6 @@ repository = "https://github.com/microsoft/windows-rs"
 [[dependencies]]
 name = "windows-sys"
 version = "0.52.0"
-description = "Rust for Windows"
-license = "MIT OR Apache-2.0"
-notices = ["Copyright (c) Microsoft Corporation."]
-authors = ["Microsoft"]
-repository = "https://github.com/microsoft/windows-rs"
-
-[[dependencies]]
-name = "windows-sys"
-version = "0.59.0"
 description = "Rust for Windows"
 license = "MIT OR Apache-2.0"
 notices = ["Copyright (c) Microsoft Corporation."]
