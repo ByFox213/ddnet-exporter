@@ -11,7 +11,7 @@ prometheus = "0.14.0"
 tokio = { version = "1.47.0", features = ["full"] }
 regex = "1.12.2"
 log = "0.4.28"
-ddapi-rs = "0.6.0"
+ddapi-rs = "0.7.1"
 env_logger = "0.11.8"
 serde = { version = "1.0.228", features = ["derive"] }
 envy = "0.4.2"
