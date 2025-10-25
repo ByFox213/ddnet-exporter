@@ -104,7 +104,7 @@ repository = "https://github.com/marshallpierce/rust-base64"
 
 [[dependencies]]
 name = "bitflags"
-version = "2.9.4"
+version = "2.10.0"
 description = """
 A macro to generate structures which behave like bitflags.
 """
@@ -136,7 +136,7 @@ repository = "https://github.com/tokio-rs/bytes"
 
 [[dependencies]]
 name = "cc"
-version = "1.2.41"
+version = "1.2.43"
 description = """
 A build-time dependency for Cargo build scripts to assist in invoking the native
 C compiler to compile native C code into a static archive to be linked into Rust
@@ -243,7 +243,7 @@ homepage = "https://github.com/crossbeam-rs/crossbeam/tree/master/crossbeam-util
 
 [[dependencies]]
 name = "ddapi-rs"
-version = "0.6.0"
+version = "0.7.1"
 description = "This module is rewritten from another module [ddapi](https://github.com/ByFox213/ddapi)"
 license = "MIT"
 notices = ["Copyright (c) 2024 ByFox"]
@@ -765,7 +765,7 @@ repository = "https://github.com/lo48576/iri-string"
 
 [[dependencies]]
 name = "is_terminal_polyfill"
-version = "1.70.1"
+version = "1.70.2"
 description = "Polyfill for `is_terminal` stdlib feature for use with older MSRVs"
 license = "MIT OR Apache-2.0"
 notices = ["Copyright (c) Individual contributors"]
@@ -943,7 +943,7 @@ repository = "https://github.com/matklad/once_cell"
 
 [[dependencies]]
 name = "once_cell_polyfill"
-version = "1.70.1"
+version = "1.70.2"
 description = "Polyfill for `OnceCell` stdlib feature for use with older MSRVs"
 license = "MIT OR Apache-2.0"
 notices = ["Copyright (c) Individual contributors"]
@@ -1092,7 +1092,7 @@ homepage = "https://icu4x.unicode.org"
 
 [[dependencies]]
 name = "proc-macro2"
-version = "1.0.101"
+version = "1.0.103"
 description = "A substitute implementation of the compiler's `proc_macro` API to decouple token-based libraries from the procedural macro use case."
 license = "MIT OR Apache-2.0"
 authors = [
@@ -1234,7 +1234,7 @@ repository = "https://github.com/bytecodealliance/rustix"
 
 [[dependencies]]
 name = "rustls"
-version = "0.23.33"
+version = "0.23.34"
 description = "Rustls is a modern TLS library written in Rust."
 license = "Apache-2.0 OR ISC OR MIT"
 notices = [
@@ -1490,7 +1490,7 @@ homepage = "https://dalek.rs/"
 
 [[dependencies]]
 name = "syn"
-version = "2.0.106"
+version = "2.0.108"
 description = "Parser for Rust source code"
 license = "MIT OR Apache-2.0"
 authors = ["David Tolnay <dtolnay@gmail.com>"]
@@ -1742,7 +1742,7 @@ repository = "https://github.com/seanmonstar/try-lock"
 
 [[dependencies]]
 name = "unicode-ident"
-version = "1.0.19"
+version = "1.0.20"
 description = "Determine whether characters have the XID_Start or XID_Continue properties according to Unicode Standard Annex #31"
 license = "(MIT OR Apache-2.0) AND Unicode-3.0"
 notices = ["Copyright © 1991-2023 Unicode, Inc."]
