@@ -1,5 +1,6 @@
 mod models;
 mod register;
+mod tests;
 mod util;
 
 use crate::models::Config;
