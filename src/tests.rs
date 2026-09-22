@@ -136,4 +136,27 @@ mod tests {
         let result = get_address("udp://[::1]:8080");
         assert_eq!(result, Some(("::1".to_string(), "8080".to_string())));
     }
+
+    #[test]
+    fn test_health_status_initial_state() {
+        use crate::util::HealthStatus;
+        let health = HealthStatus::new();
+        let (is_healthy, _) = health.check(60);
+        assert!(!is_healthy, "Initial health state must be unhealthy until first successful scrape");
+    }
+
+    #[test]
+    fn test_health_status_mark_healthy_and_unhealthy() {
+        use crate::util::HealthStatus;
+        let health = HealthStatus::new();
+        health.mark_healthy();
+        let (is_healthy, age) = health.check(60);
+        assert!(is_healthy);
+        assert!(age <= 1);
+
+        health.mark_unhealthy();
+        let (is_healthy_now, _) = health.check(60);
+        assert!(!is_healthy_now);
+    }
 }
+
