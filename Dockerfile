@@ -6,11 +6,11 @@ WORKDIR /app_build
 COPY Cargo.toml Cargo.lock ./
 RUN mkdir src && echo "fn main() {}" > src/main.rs && \
     cargo build --release && \
-    rm -rf src
+    rm -rf src target/release/ddnet-exporter* target/release/deps/ddnet_exporter*
 
 COPY . .
 
-RUN cargo build --release
+RUN touch src/main.rs && cargo build --release
 
 FROM debian:bookworm-slim
 
