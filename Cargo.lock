@@ -218,6 +218,7 @@ dependencies = [
  "prometheus",
  "regex",
  "serde",
+ "serde_json",
  "tokio",
 ]
 

@@ -1,7 +1,7 @@
 use crate::models::Config;
 use crate::register::*;
 use ddapi_rs::api::DDApi;
-use ddapi_rs::api::ddnet::DDnetApi;
+use ddapi_rs::scheme::ddnet::{Master, MasterServer};
 use lazy_static::lazy_static;
 use log::{debug, error, trace};
 use regex::Regex;
@@ -85,6 +85,69 @@ pub fn get_address(address: &str) -> Option<(String, String)> {
     Some((ip, port))
 }
 
+/// Fetches the DDNet master server list and returns it deserialized into the
+/// library `Master` type.
+///
+/// The DDNet master API is not fully consistent: some servers report their
+/// `info` as the classic flat object while others (e.g. newer / experimental
+/// game servers) wrap it in a map keyed by an internal server id, like:
+///
+/// ```json
+/// "info": { "3d0f5a1c2b7e9d48": { "max_clients": 128, "name": "..." } }
+/// ```
+///
+/// The `ddapi-rs` `Info` type only understands the flat form, so a single such
+/// server would fail deserialization of the *entire* response. To stay
+/// resilient we first decode into a raw `serde_json::Value`, normalize every
+/// server's `info` back to the flat form, and only then deserialize.
+async fn fetch_master(ddapi: &DDApi, master: u8) -> anyhow::Result<Master> {
+    let master_server = match master {
+        2 => MasterServer::Two,
+        3 => MasterServer::Three,
+        4 => MasterServer::Four,
+        _ => MasterServer::One,
+    };
+
+    let mut value: serde_json::Value = ddapi
+        ._generator_no_cache(&Master::api(master_server))
+        .await?;
+
+    normalize_server_info(&mut value);
+
+    Ok(serde_json::from_value(value)?)
+}
+
+/// Rewrites every server's `info` field to the flat representation that
+/// `ddapi-rs` expects, unwrapping the map-keyed form when present.
+pub fn normalize_server_info(value: &mut serde_json::Value) {
+    let Some(servers) = value
+        .get_mut("servers")
+        .and_then(serde_json::Value::as_array_mut)
+    else {
+        return;
+    };
+
+    for server in servers {
+        let Some(info) = server.get_mut("info") else {
+            continue;
+        };
+
+        // Already flat — the usual and expected shape.
+        if info.get("max_clients").is_some() {
+            continue;
+        }
+
+        // Map-keyed form: pick the first object value.
+        let Some(map) = info.as_object() else {
+            continue;
+        };
+        if let Some((_, nested)) = map.iter().find(|(_, value)| value.is_object()) {
+            debug!("Unwrapping map-keyed info for a DDNet server");
+            *info = nested.clone();
+        }
+    }
+}
+
 pub async fn ddnet(config: Config, health: HealthStatus) {
     let ddapi = DDApi::new();
     loop {
@@ -93,7 +156,7 @@ pub async fn ddnet(config: Config, health: HealthStatus) {
 
         let master_result = tokio::time::timeout(
             Duration::from_secs(config.timeout),
-            ddapi.master(),
+            fetch_master(&ddapi, config.master),
         )
         .await;
 

@@ -26,6 +26,10 @@ pub struct Config {
         alias = "error_delay"
     )]
     pub error_delay: u64,
+
+    /// Which DDNet master to query (1..=4). Defaults to 1.
+    #[serde(default = "default_master", alias = "MASTER", alias = "master")]
+    pub master: u8,
 }
 
 fn default_logging() -> String {
@@ -46,6 +50,10 @@ fn default_timeout() -> u64 {
 
 fn default_error_delay() -> u64 {
     5
+}
+
+fn default_master() -> u8 {
+    1
 }
 
 impl Config {

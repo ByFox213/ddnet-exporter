@@ -1,6 +1,54 @@
 #[cfg(test)]
 mod tests {
-    use crate::util::get_address;
+    use crate::util::{get_address, normalize_server_info};
+
+    #[test]
+    fn test_normalize_flat_info_unchanged() {
+        let mut value = serde_json::json!({
+            "servers": [
+                { "addresses": ["tw-0.6+udp://1.2.3.4:8303"], "info": { "max_clients": 64, "name": "A" } }
+            ]
+        });
+        normalize_server_info(&mut value);
+        assert_eq!(value["servers"][0]["info"]["max_clients"], 64);
+        assert_eq!(value["servers"][0]["info"]["name"], "A");
+    }
+
+    #[test]
+    fn test_normalize_map_keyed_info() {
+        let mut value = serde_json::json!({
+            "servers": [
+                {
+                    "addresses": ["tw-0.6+udp://1.2.3.4:8306"],
+                    "info": {
+                        "3d0f5a1c2b7e9d48": { "max_clients": 128, "name": "Kestrel CTF", "map": { "name": "sky_islands" } }
+                    }
+                }
+            ]
+        });
+        normalize_server_info(&mut value);
+        assert_eq!(value["servers"][0]["info"]["max_clients"], 128);
+        assert_eq!(value["servers"][0]["info"]["name"], "Kestrel CTF");
+        assert!(
+            value["servers"][0]["info"]
+                .get("3d0f5a1c2b7e9d48")
+                .is_none()
+        );
+    }
+
+    #[test]
+    fn test_normalize_mixed_servers() {
+        let mut value = serde_json::json!({
+            "servers": [
+                { "info": { "max_clients": 64, "name": "Flat" } },
+                { "info": { "aaaa": { "max_clients": 32, "name": "Nested" } } }
+            ]
+        });
+        normalize_server_info(&mut value);
+        let servers = value["servers"].as_array().unwrap();
+        assert_eq!(servers[0]["info"]["name"], "Flat");
+        assert_eq!(servers[1]["info"]["name"], "Nested");
+    }
 
     #[test]
     fn test_valid_ipv4_address() {
@@ -142,7 +190,10 @@ mod tests {
         use crate::util::HealthStatus;
         let health = HealthStatus::new();
         let (is_healthy, _) = health.check(60);
-        assert!(!is_healthy, "Initial health state must be unhealthy until first successful scrape");
+        assert!(
+            !is_healthy,
+            "Initial health state must be unhealthy until first successful scrape"
+        );
     }
 
     #[test]
@@ -159,4 +210,3 @@ mod tests {
         assert!(!is_healthy_now);
     }
 }
-
